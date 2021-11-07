@@ -32,6 +32,24 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: COLOR.BACKGROUND,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {},
+          icon: Container(
+            height: 58,
+            width: 58,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, border: Border.all(color: COLOR.RED.withOpacity(0.2))),
+            child: const Icon(Icons.person),
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications),
+          ),
+        ],
+      ),
       body: _screens[_selectedIndex < 2 ? _selectedIndex : _selectedIndex - 1],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -42,10 +60,10 @@ class _MainPageState extends State<MainPage> {
         unselectedItemColor: COLOR.MENU_DISABLE,
         items: [
           _getBottomMenuItem(Icons.home),
-          _getBottomMenuItem(Icons.home),
+          _getBottomMenuItem(Icons.text_snippet),
           BottomNavigationBarItem(icon: Container(), label: ""),
-          _getBottomMenuItem(Icons.home),
-          _getBottomMenuItem(Icons.home),
+          _getBottomMenuItem(Icons.card_giftcard),
+          _getBottomMenuItem(Icons.settings),
         ],
         onTap: (i) {
           setState(() {
